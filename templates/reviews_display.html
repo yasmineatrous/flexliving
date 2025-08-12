@@ -1,0 +1,424 @@
+{% extends "base.html" %}
+
+{% block title %}Guest Reviews - Flex Living{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Property Gallery -->
+<div class="flex-hero-section position-relative overflow-hidden">
+    <!-- Background Image -->
+    <div class="hero-bg-image"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="container position-relative">
+        <div class="row align-items-center min-vh-100 py-5">
+            <div class="col-lg-6">
+                <div class="hero-content text-white">
+                    <div class="hero-badge mb-4">
+                        <span class="badge bg-light text-dark px-4 py-2 fs-6">FLEX LIVING</span>
+                    </div>
+                    <h1 class="display-2 fw-bold mb-4 hero-title">Bienvenue chez vous en un clic</h1>
+                    <p class="lead mb-5 hero-subtitle">Découvrez nos propriétés exceptionnelles à travers les yeux de nos clients. Chaque témoignage raconte une expérience unique dans nos logements premium.</p>
+                    
+                    <div class="hero-stats-container mb-5">
+                        <div class="row g-4">
+                            <div class="col-4">
+                                <div class="stat-card text-center">
+                                    <div class="stat-number display-4 fw-bold text-warning">{{ total_reviews }}</div>
+                                    <div class="stat-label text-light">Avis clients</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card text-center">
+                                    <div class="stat-number display-4 fw-bold text-warning">{{ average_rating }}</div>
+                                    <div class="stat-label text-light">Note moyenne</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card text-center">
+                                    <div class="stat-number display-4 fw-bold text-warning">{{ total_properties }}</div>
+                                    <div class="stat-label text-light">Propriétés</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-actions d-flex gap-3 flex-wrap">
+                        <button class="btn btn-warning btn-lg px-4 py-3 fw-bold">
+                            <i class="fas fa-search me-2"></i>Explorer nos logements
+                        </button>
+                        <button class="btn btn-outline-light btn-lg px-4 py-3">
+                            <i class="fas fa-play me-2"></i>Voir la vidéo
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="hero-gallery">
+                    <div class="property-showcase">
+                        <div class="showcase-main">
+                            <div class="property-card luxury-apartment">
+                                <div class="property-image"></div>
+                                <div class="property-overlay">
+                                    <h5 class="text-white mb-2">Penthouse Prestige</h5>
+                                    <p class="text-light small mb-0">Vue panoramique • Paris</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="showcase-grid">
+                            <div class="property-card modern-loft">
+                                <div class="property-image"></div>
+                                <div class="property-overlay">
+                                    <h6 class="text-white mb-1">Loft Design</h6>
+                                    <p class="text-light small mb-0">Architecture moderne</p>
+                                </div>
+                            </div>
+                            <div class="property-card cozy-studio">
+                                <div class="property-image"></div>
+                                <div class="property-overlay">
+                                    <h6 class="text-white mb-1">Appartement Premium</h6>
+                                    <p class="text-light small mb-0">Luxe et confort</p>
+                                </div>
+                            </div>
+                            <div class="property-card penthouse">
+                                <div class="property-image"></div>
+                                <div class="property-overlay">
+                                    <h6 class="text-white mb-1">Villa avec Piscine</h6>
+                                    <p class="text-light small mb-0">Vue mer exceptionnelle</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="float-element float-1"></div>
+        <div class="float-element float-2"></div>
+        <div class="float-element float-3"></div>
+    </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="testimonials-main-section">
+    <div class="testimonials-bg-pattern"></div>
+    
+    <div class="container position-relative">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-header text-center mb-5">
+                    <div class="section-badge">
+                        <span class="badge bg-primary px-4 py-2 text-uppercase fw-bold">TÉMOIGNAGES</span>
+                    </div>
+                    <h2 class="display-4 fw-bold mt-4 mb-4">Nos FlexLivers en parlent<br>mieux que nous</h2>
+                    <p class="lead text-muted">Découvrez l'expérience authentique de nos clients à travers leurs témoignages</p>
+                </div>
+            </div>
+        </div>
+        
+        {% if approved_reviews %}
+            <div class="testimonials-showcase">
+                <div class="testimonials-masonry" id="testimonialsContainer">
+                    {% for review in approved_reviews %}
+                    <div class="testimonial-item" data-category="{{ review.listing_name }}">
+                        <div class="testimonial-premium-card">
+                            <!-- Property Image Header -->
+                            <div class="testimonial-property-header">
+                                <div class="property-thumbnail property-{{ loop.index % 4 + 1 }}"></div>
+                                <div class="property-info">
+                                    <h6 class="property-name mb-1">{{ review.listing_name }}</h6>
+                                    <p class="property-location small text-muted mb-0">
+                                        <i class="fas fa-map-marker-alt me-1"></i>{{ review.guest_location or 'France' }}
+                                    </p>
+                                </div>
+                                <div class="review-verified">
+                                    <i class="fas fa-check-circle text-success" title="Avis vérifié"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Review Content -->
+                            <div class="testimonial-body">
+                                <div class="rating-display mb-3">
+                                    <div class="stars">
+                                        {% for i in range(5) %}
+                                            {% if i < review.overall_rating %}
+                                                <i class="fas fa-star"></i>
+                                            {% else %}
+                                                <i class="far fa-star"></i>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                    <span class="rating-value">{{ review.overall_rating }}.0</span>
+                                </div>
+                                
+                                <blockquote class="testimonial-quote">
+                                    <p>"{{ review.review_text }}"</p>
+                                </blockquote>
+                                
+                                <!-- Category Ratings -->
+                                {% if review.review_category %}
+                                <div class="category-ratings">
+                                    {% if review.review_category.cleanliness %}
+                                    <div class="category-item">
+                                        <span class="category-label">Propreté</span>
+                                        <div class="category-stars">
+                                            {% for i in range(5) %}
+                                                {% if i < review.review_category.cleanliness %}
+                                                    <i class="fas fa-star"></i>
+                                                {% else %}
+                                                    <i class="far fa-star"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% if review.review_category.communication %}
+                                    <div class="category-item">
+                                        <span class="category-label">Communication</span>
+                                        <div class="category-stars">
+                                            {% for i in range(5) %}
+                                                {% if i < review.review_category.communication %}
+                                                    <i class="fas fa-star"></i>
+                                                {% else %}
+                                                    <i class="far fa-star"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Reviewer Info -->
+                            <div class="testimonial-footer">
+                                <div class="reviewer-profile">
+                                    <div class="reviewer-avatar">
+                                        <span>{{ review.guest_name[0].upper() if review.guest_name else 'C' }}</span>
+                                    </div>
+                                    <div class="reviewer-details">
+                                        <h6 class="reviewer-name">{{ review.guest_name }}</h6>
+                                        <p class="reviewer-meta small text-muted">
+                                            Client FlexLiver • {{ review.review_date.strftime('%B %Y') if review.review_date else 'Récemment' }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="review-date">
+                                    <small class="text-muted">{{ review.review_date.strftime('%d/%m/%Y') if review.review_date else 'Date récente' }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="text-center mt-5">
+                    <button class="btn btn-outline-primary btn-lg" id="loadMoreBtn" onclick="loadMoreTestimonials()">
+                        <i class="fas fa-plus me-2"></i>Voir plus de témoignages
+                    </button>
+                </div>
+            </div>
+                    
+                {% else %}
+                    <div class="empty-testimonials text-center py-5">
+                        <div class="empty-icon mb-4">
+                            <i class="fas fa-comments fa-4x text-muted opacity-50"></i>
+                        </div>
+                        <h4 class="text-muted mb-3">Aucun témoignage approuvé</h4>
+                        <p class="text-muted">Les témoignages clients apparaîtront ici une fois approuvés par l'équipe.</p>
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-primary mt-3">
+                            <i class="fas fa-tachometer-alt me-2"></i>Aller au tableau de bord
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="cta-section bg-primary text-white py-5">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h3 class="display-6 fw-bold mb-3">Prêt à découvrir Flex Living ?</h3>
+                <p class="lead mb-4">Rejoignez notre communauté de clients satisfaits et découvrez la différence Flex Living.</p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <button class="btn btn-light btn-lg">
+                        <i class="fas fa-search me-2"></i>Explorer nos logements
+                    </button>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-cog me-2"></i>Tableau de bord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let visibleTestimonials = 6; // Initially show 6 testimonials
+let totalTestimonials = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+    initializeTestimonials();
+    setupPropertyShowcase();
+});
+
+function initializeTestimonials() {
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    totalTestimonials = testimonialItems.length;
+    
+    // Show all approved testimonials by default (no hiding)
+    console.log(`Total testimonials found: ${totalTestimonials}`);
+    testimonialItems.forEach((item, index) => {
+        item.style.display = 'block';
+        console.log(`Showing testimonial ${index + 1}`);
+    });
+    
+    // Set visible count to total for consistency
+    visibleTestimonials = totalTestimonials;
+    
+    // Update load more button visibility (will hide it since all are shown)
+    updateLoadMoreButton();
+    
+    // Add hover effects to testimonial cards
+    addTestimonialInteractions();
+}
+
+function loadMoreTestimonials() {
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    const itemsToShow = Math.min(visibleTestimonials + 3, totalTestimonials);
+    
+    // Show additional testimonials with animation
+    for (let i = visibleTestimonials; i < itemsToShow; i++) {
+        if (testimonialItems[i]) {
+            testimonialItems[i].style.display = 'block';
+            testimonialItems[i].style.opacity = '0';
+            testimonialItems[i].style.transform = 'translateY(30px)';
+            
+            // Animate in
+            setTimeout(() => {
+                testimonialItems[i].style.transition = 'all 0.6s ease';
+                testimonialItems[i].style.opacity = '1';
+                testimonialItems[i].style.transform = 'translateY(0)';
+            }, (i - visibleTestimonials) * 100);
+        }
+    }
+    
+    visibleTestimonials = itemsToShow;
+    updateLoadMoreButton();
+}
+
+function updateLoadMoreButton() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+        if (visibleTestimonials >= totalTestimonials) {
+            loadMoreBtn.style.display = 'none';
+        } else {
+            loadMoreBtn.style.display = 'inline-block';
+            loadMoreBtn.innerHTML = `<i class="fas fa-plus me-2"></i>Voir ${Math.min(3, totalTestimonials - visibleTestimonials)} témoignages de plus`;
+        }
+    }
+}
+
+function addTestimonialInteractions() {
+    const testimonialCards = document.querySelectorAll('.testimonial-premium-card');
+    
+    testimonialCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            // Add subtle glow effect
+            this.style.boxShadow = '0 30px 80px rgba(102, 126, 234, 0.2)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            // Remove glow effect
+            this.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.1)';
+        });
+    });
+}
+
+function setupPropertyShowcase() {
+    const propertyCards = document.querySelectorAll('.property-card');
+    
+    propertyCards.forEach((card, index) => {
+        // Add staggered animation delays
+        card.style.animationDelay = `${0.8 + (index * 0.1)}s`;
+        
+        // Add click interaction
+        card.addEventListener('click', function() {
+            // Add a pulse effect
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    });
+}
+
+// Parallax effect for floating elements
+function initParallaxEffects() {
+    const floatingElements = document.querySelectorAll('.float-element');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        floatingElements.forEach((element, index) => {
+            const speed = 0.3 + (index * 0.1);
+            element.style.transform = `translateY(${rate * speed}px) rotate(${rate * 0.1}deg)`;
+        });
+    });
+}
+
+// Initialize parallax effects
+document.addEventListener('DOMContentLoaded', initParallaxEffects);
+
+// Smooth scroll for internal links
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
+
+// Add intersection observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe elements when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.testimonial-item, .stat-card, .property-card');
+    animatedElements.forEach(el => observer.observe(el));
+});
+</script>
+{% endblock %}

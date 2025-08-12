@@ -1,0 +1,146 @@
+[
+    {
+        "id": 1001,
+        "type": "guest-to-host",
+        "status": "published",
+        "rating": null,
+        "publicReview": "Absolutely fantastic stay! The property was immaculate and the location couldn't be better. The host was incredibly responsive and helpful throughout our stay. Would definitely recommend to anyone looking for a luxury experience in the city.",
+        "reviewCategory": [
+            { "category": "cleanliness", "rating": 10 },
+            { "category": "communication", "rating": 10 },
+            { "category": "respect_house_rules", "rating": 10 },
+            { "category": "location", "rating": 9 },
+            { "category": "value", "rating": 9 }
+        ],
+        "submittedAt": "2025-08-10 14:30:22",
+        "guestName": "Sarah Johnson",
+        "listingName": "Luxury Downtown Loft",
+        "listingId": 2001
+    },
+    {
+        "id": 1002,
+        "type": "guest-to-host",
+        "status": "published",
+        "rating": null,
+        "publicReview": "Great property with amazing amenities. The kitchen was fully equipped and the living spaces were very comfortable. Only minor issue was the Wi-Fi could be stronger in the bedroom, but overall an excellent stay.",
+        "reviewCategory": [
+            { "category": "cleanliness", "rating": 9 },
+            { "category": "communication", "rating": 8 },
+            { "category": "respect_house_rules", "rating": 10 },
+            { "category": "location", "rating": 8 },
+            { "category": "value", "rating": 8 }
+        ],
+        "submittedAt": "2025-08-09 09:15:33",
+        "guestName": "Michael Chen",
+        "listingName": "Modern Skyline Apartment",
+        "listingId": 2002
+    },
+    {
+        "id": 1003,
+        "type": "guest-to-host",
+        "status": "published",
+        "rating": null,
+        "publicReview": "Beautiful property in a quiet neighborhood. Perfect for a romantic getaway. The attention to detail in the decor was impressive and the bed was incredibly comfortable. Highly recommended!",
+        "reviewCategory": [
+            { "category": "cleanliness", "rating": 10 },
+            { "category": "communication", "rating": 9 },
+            { "category": "respect_house_rules", "rating": 10 },
+            { "category": "location", "rating": 9 },
+            { "category": "value", "rating": 9 }
+        ],
+        "submittedAt": "2025-08-08 16:45:12",
+        "guestName": "Emma Rodriguez",
+        "listingName": "Charming Garden Cottage",
+        "listingId": 2003
+    },
+    {
+        "id": 1004,
+        "type": "guest-to-host",
+        "status": "published",
+        "rating": null,
+        "publicReview": "Good value for money. The property was clean and well-maintained. Location was convenient for public transport. The host provided clear instructions and was easy to reach when needed.",
+        "reviewCategory": [
+            { "category": "cleanliness", "rating": 8 },
+            { "category": "communication", "rating": 9 },
+            { "category": "respect_house_rules", "rating": 9 },
+            { "category": "location", "rating": 8 },
+            { "category": "value", "rating": 9 }
+        ],
+        "submittedAt": "2025-08-07 11:22:45",
+        "guestName": "David Thompson",
+        "listingName": "City Center Studio",
+        "listingId": 2004
+    },
+    {
+        "id": 1005,
+        "type": "guest-to-host",
+        "status": "published",
+        "rating": null,
+        "publicReview": "Exceeded all expectations! The rooftop terrace was the highlight of our stay. Perfect for morning coffee and evening relaxation. The interior design was stunning and very Instagram-worthy!",
+        "reviewCategory": [
+            { "category": "cleanliness", "rating": 10 },
+            { "category": "communication", "rating": 10 },
+            { "category": "respect_house_rules", "rating": 10 },
+            { "category": "location", "rating": 10 },
+            { "category": "value", "rating": 9 }
+        ],
+        "submittedAt": "2025-08-06 13:18:27",
+        "guestName": "Jessica Park",
+        "listingName": "Penthouse with Terrace",
+        "listingId": 2005
+    },
+    {
+        "id": 1006,
+        "type": "guest-to-host",
+        "status": "published",
+        "rating": null,
+        "publicReview": "Lovely stay overall. The property was as described and photos were accurate. Great for families with the separate bedroom and living area. Kids loved the nearby park. Would stay again!",
+        "reviewCategory": [
+            { "category": "cleanliness", "rating": 9 },
+            { "category": "communication", "rating": 8 },
+            { "category": "respect_house_rules", "rating": 10 },
+            { "category": "location", "rating": 9 },
+            { "category": "value", "rating": 8 }
+        ],
+        "submittedAt": "2025-08-05 10:33:18",
+        "guestName": "Mark Wilson",
+        "listingName": "Family-Friendly Duplex",
+        "listingId": 2006
+    },
+    {
+        "id": 1007,
+        "type": "guest-to-host",
+        "status": "published",
+        "rating": null,
+        "publicReview": "Fantastic business trip accommodation. High-speed internet, comfortable workspace, and professional environment. The location was perfect for client meetings downtown. Highly recommend for business travelers.",
+        "reviewCategory": [
+            { "category": "cleanliness", "rating": 9 },
+            { "category": "communication", "rating": 9 },
+            { "category": "respect_house_rules", "rating": 10 },
+            { "category": "location", "rating": 10 },
+            { "category": "value", "rating": 8 }
+        ],
+        "submittedAt": "2025-08-04 15:42:09",
+        "guestName": "Amanda Foster",
+        "listingName": "Executive Business Suite",
+        "listingId": 2007
+    },
+    {
+        "id": 1008,
+        "type": "guest-to-host",
+        "status": "published",
+        "rating": null,
+        "publicReview": "Cozy and comfortable retreat. Perfect size for a couple's weekend getaway. The neighborhood was quiet and felt very safe. Enjoyed exploring the local cafes and shops within walking distance.",
+        "reviewCategory": [
+            { "category": "cleanliness", "rating": 8 },
+            { "category": "communication", "rating": 9 },
+            { "category": "respect_house_rules", "rating": 9 },
+            { "category": "location", "rating": 8 },
+            { "category": "value", "rating": 9 }
+        ],
+        "submittedAt": "2025-08-03 12:27:54",
+        "guestName": "Robert Kim",
+        "listingName": "Cozy Neighborhood Flat",
+        "listingId": 2008
+    }
+]
