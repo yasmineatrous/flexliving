@@ -12,7 +12,7 @@ A Flask-based web application for managing property reviews from Hostaway and ot
 - **Google Reviews Ready**: Placeholder integration for future Google Reviews API
 
 ## Live Demo
-- Access the live deployed app here: https://flexliving-a2yuphtd6-yasmines-projects-a3ce6941.vercel.app/reviews
+- Access the live deployed app here: https://flexlivingdashboard.vercel.app/reviews
 
 
 
